@@ -1,5 +1,6 @@
 import {fireEvent, render, screen} from "@testing-library/react";
 import App from "./App";
+import { kebabCaseToTitleCase } from "./helpers.js";
 
 test("button click flow", () => {
     render(<App/>);
@@ -36,4 +37,17 @@ test("checkbox flow", () => {
     fireEvent.click(checkbox);
     expect(button).toBeEnabled();
     expect(button).toHaveClass("red");
+})
+
+describe("kebabCaseToTitleCase", () => {
+    test("works for no hyphens", () => {
+        expect(kebabCaseToTitleCase("red")).toBe("Red");
+    });
+
+    test("works for one hyphens", () => {
+        expect(kebabCaseToTitleCase("midnight-blue")).toBe("Midnight Blue");
+    });
+    test("works for multiple hyphens", () => {
+        expect(kebabCaseToTitleCase("medium-violet-red")).toBe("Medium Violet Red");
+    });
 })
