@@ -6,10 +6,10 @@ test("button click flow", () => {
     render(<App/>);
 
     const button = screen.getByRole("button", {name: /blue/i});
-    expect(button).toHaveClass("red");
+    expect(button).toHaveClass("medium-violet-red");
 
     fireEvent.click(button);
-    expect(button).toHaveClass("blue");
+    expect(button).toHaveClass("midnight-blue");
     expect(button).toHaveTextContent(/red/i);
     // expect(button).toHaveStyle({"background-color": "blue"});
 
@@ -18,7 +18,7 @@ test("button click flow", () => {
     expect(button).toHaveClass("gray");
 
     fireEvent.click(checkbox);
-    expect(button).toHaveClass("blue");
+    expect(button).toHaveClass("midnight-blue");
 })
 
 test("checkbox flow", () => {
@@ -36,7 +36,7 @@ test("checkbox flow", () => {
 
     fireEvent.click(checkbox);
     expect(button).toBeEnabled();
-    expect(button).toHaveClass("red");
+    expect(button).toHaveClass("medium-violet-red");
 })
 
 describe("kebabCaseToTitleCase", () => {
